@@ -6,7 +6,7 @@ import {
   TouchableHighlight,
   View,
   TextInput,
-  ListView,
+  FlatList,
   ScrollView,
   Dimensions,
   Image
@@ -48,13 +48,13 @@ class Main extends Component{
                 <TabNavigator.Item
                     selected={this.state.selectedTab === 'video'}
                     title="Video"
-                    renderIcon={() => 
+                    renderIcon={() =>
                       <Icon
                         name='projection-screen'
                         type='foundation'
                         iconStyle={{opacity: 0.5}}
                         color='grey'/> }
-                    renderSelectedIcon={() => 
+                    renderSelectedIcon={() =>
                       <Icon
                         name='projection-screen'
                          type='foundation'
@@ -66,13 +66,13 @@ class Main extends Component{
                 <TabNavigator.Item
                     selected={this.state.selectedTab === 'chat'}
                     title="Chat"
-                    renderIcon={() => 
+                    renderIcon={() =>
                       <Icon
                         name='chat'
                         type='entypo'
                         iconStyle={{opacity: 0.5}}
                         color='grey'/> }
-                    renderSelectedIcon={() => 
+                    renderSelectedIcon={() =>
                       <Icon
                         name='chat'
                         type='entypo'

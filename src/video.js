@@ -6,7 +6,7 @@ import {
   TouchableHighlight,
   View,
   TextInput,
-  ListView,
+  FlatList,
   ScrollView,
   Dimensions,
   Image,
@@ -64,8 +64,7 @@ class Video extends Component {
 
     constructor(props) {
       super(props);
-      this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => true});
-      this.state ={ 
+      this.state ={
         info: 'Initializing',
         status: 'init',
         roomID: '',
@@ -83,7 +82,7 @@ class Video extends Component {
         videoMute: false,
         visible: false
       };
-    } 
+    }
 
   componentDidMount(){
     InCallManager.start({ media: 'audio' });
@@ -120,7 +119,7 @@ class Video extends Component {
                               if(event === "joined") {
                                   myid = msg["id"];
                                   this.publishOwnFeed(true);
-                                  this.setState({visible: false}); 
+                                  this.setState({visible: false});
                                   if(msg["publishers"] !== undefined && msg["publishers"] !== null) {
                                     var list = msg["publishers"];
                                     for(var f in list) {
@@ -137,8 +136,8 @@ class Video extends Component {
                                     let id = list[f]["id"]
                                     let display = list[f]["display"]
                                     this.newRemoteFeed(id, display)
-                                  }  
-                                } else if(msg["leaving"] !== undefined && msg["leaving"] !== null) {                                        
+                                  }
+                                } else if(msg["leaving"] !== undefined && msg["leaving"] !== null) {
                                   var leaving = msg["leaving"];
                                   var remoteFeed = null;
                                   let numLeaving = parseInt(msg["leaving"])
@@ -231,7 +230,7 @@ class Video extends Component {
     endCall = () => {
       janus.destroy()
     }
-    
+
     publishOwnFeed(useAudio){
       if(!this.state.publish){
         this.setState({ publish: true });
@@ -288,7 +287,7 @@ class Video extends Component {
                     },
                     error: (error) => {
                       Alert.alert("WebRTC error:", error)
-                    } 
+                    }
                   });
               }
           },
@@ -327,13 +326,13 @@ class Video extends Component {
             }
         </View>
         <View style={{flex: 1, flexDirection: 'row'}}>
-          { this.state.audioMute ? 
+          { this.state.audioMute ?
             <Icon
               raised
               name='microphone-off'
               type='material-community'
               color='grey'
-              onPress={() => this.toggleAudioMute()} /> : 
+              onPress={() => this.toggleAudioMute()} /> :
             <Icon
               raised
               name='microphone'
@@ -341,13 +340,13 @@ class Video extends Component {
               color='black'
               onPress={() => this.toggleAudioMute()} /> }
 
-          { this.state.videoMute ? 
+          { this.state.videoMute ?
             <Icon
               raised
               name='video-off'
               type='material-community'
               color='grey'
-              onPress={() => this.toggleVideoMute()} /> : 
+              onPress={() => this.toggleVideoMute()} /> :
             <Icon
               raised
               name='video'
@@ -355,13 +354,13 @@ class Video extends Component {
               color='black'
               onPress={() => this.toggleVideoMute()} /> }
 
-          { this.state.speaker ? 
+          { this.state.speaker ?
             <Icon
               raised
               name='volume-up'
               type='FontAwesome'
               color='black'
-              onPress={() => this.toggleSpeaker()} /> : 
+              onPress={() => this.toggleSpeaker()} /> :
             <Icon
                 raised
                 name='volume-down'

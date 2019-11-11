@@ -6,7 +6,7 @@ import {
   TouchableHighlight,
   View,
   TextInput,
-  ListView,
+  FlatList,
   ScrollView,
   Dimensions,
   Image
@@ -19,7 +19,7 @@ class Chat extends Component {
 
     constructor(props) {
         super(props);
-        this.state ={ 
+        this.state ={
             info: 'Initializing',
             user: {
               _id: 2
@@ -34,7 +34,7 @@ class Chat extends Component {
                   name: 'React Native',
                   avatar: 'https://facebook.github.io/react/img/logo_og.png',
                 },
-              }, 
+              },
               {
                 _id: 2,
                 text: 'Hello dev',
@@ -53,7 +53,7 @@ class Chat extends Component {
       this.setState((previousState) => ({
         messages: GiftedChat.append(previousState.messages, messages),
       }));
-    } 
+    }
 
     componentDidMount(){
     }
@@ -66,7 +66,7 @@ class Chat extends Component {
       const isSameUser = pUser._id === user._id
       const isSelf = user._id === self._id
       const shouldNotRenderName = isSameUser
-    
+
       return shouldNotRenderName ? (
         <View />
       ) : (
@@ -86,7 +86,7 @@ class Chat extends Component {
           </View>
         )
     }
-    
+
 
     render() {
         return(
