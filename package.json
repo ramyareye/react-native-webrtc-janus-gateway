@@ -10,8 +10,10 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@notifee/react-native": "^5.4.1",
     "react": "18.0.0",
-    "react-native": "0.69.1"
+    "react-native": "0.69.1",
+    "react-native-webrtc": "^1.100.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -20,6 +22,7 @@
     "@tsconfig/react-native": "^2.0.0",
     "@types/jest": "^26.0.23",
     "@types/react-native": "^0.69.1",
+    "@types/react-native-webrtc": "^1.75.5",
     "@types/react-test-renderer": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
